@@ -1,4 +1,4 @@
-package ch.gibm.gfjw.dao;
+package ch.gibm.gfjw.dto;
 
 public class TeamPrice extends ProductImpl{
 	
