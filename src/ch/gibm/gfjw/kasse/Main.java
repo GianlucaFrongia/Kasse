@@ -1,4 +1,4 @@
-package Kasse;
+package ch.gibm.gfjw.kasse;
 
 import ch.gibm.gfjw.gui.View;
 
