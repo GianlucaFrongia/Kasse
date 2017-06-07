@@ -1,23 +1,25 @@
 package ch.gibm.gfjw.dto;
 
+import javax.swing.ImageIcon;
+
 public class Coint {
 
-	private String image;
+	private ImageIcon image;
 	private double value;
 	private String name;
 	
-	public Coint(String image, double value, String name) {
+	public Coint(String imageURL, double value, String name) {
 		super();
-		this.image = image;
+		this.image = new ImageIcon(imageURL);
 		this.value = value;
 		this.name = name;
 	}
 	
-	public String getImage() {
+	public ImageIcon getImage() {
 		return image;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setImage(String imageURL) {
+		this.image = new ImageIcon(imageURL);
 	}
 	public double getValue() {
 		return value;
