@@ -7,7 +7,6 @@ import static ch.gibm.gfjw.gui.Style.createLabel;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -25,14 +24,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class View extends JFrame implements ActionListener{
 
+	private static final long serialVersionUID = 1L;
 	private JLabel lblDisplay;
 	private JTable tblProductView;
 	private DefaultTableModel modelProductList = new DefaultTableModel();
 	private JButton btnEnter, btnDelete, btnTeam, btnSettings;
     private JPanel mainView, productButtonView , manageProductView, showProductView, menuBarView, productView;
-    private ManageProductPanel manageProductPanel = new ManageProductPanel();
+//    private ManageProductPanel manageProductPanel = new ManageProductPanel();
 //    private ShoppingCart shoppingCart = new ShoppingCart();
-    private BackMoney backMoney;
     
 	public View () {
 		
