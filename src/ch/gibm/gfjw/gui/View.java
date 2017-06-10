@@ -90,9 +90,11 @@ public class View extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 		 		 
 	    if (e.getSource() == this.btnEnter){
+	    	   
 	    }
 	    
 	    else if (e.getSource() == this.btnDelete){
+	    	modelProductList.removeRow(tblProductView.getSelectedRow());
 	    }
 	     
 	    else if (e.getSource() == this.btnTeam){
