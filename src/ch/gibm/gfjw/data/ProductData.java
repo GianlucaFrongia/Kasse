@@ -1,5 +1,6 @@
-package main.java.data;
+package ch.gibm.gfjw.data;
 
+import ch.gibm.gfjw.data.ProductDao;
 import ch.gibm.gfjw.dto.Product;
 import ch.gibm.gfjw.dto.ProductImpl;
 import com.google.gson.Gson;
@@ -16,18 +17,7 @@ import java.util.List;
  */
 
 public class ProductData implements ProductDao{
-    public static void main(String[] args){
-                ProductData dumpp = new ProductData();
 
-            Product product1 = new ProductImpl("Fanta", 2,2.5,3.5);
-        Product product2 = new ProductImpl("Pepsi", 2,2.5,3.5);
-        Product product3 = new ProductImpl("Cola", 2,2.5,3.5);
-
-        dumpp.addProduct(product1);
-        dumpp.addProduct(product2);
-        dumpp.addProduct(product3);
-
-    }
 
     public List<Product> getProductList() {
 
@@ -56,13 +46,11 @@ public class ProductData implements ProductDao{
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         List<Product> productList = new ArrayList<Product>();
+        productList.add(product);
 
         try (Writer writer = new FileWriter("products.json", true)) {
-
-            productList.add(product);
-
-
-            gson.toJson(productList, writer);
+            writer.write(gson.toJson(productList));
+            writer.close();
 
 
         } catch (IOException e) {

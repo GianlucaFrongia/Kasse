@@ -1,4 +1,4 @@
-package main.java.data;
+package ch.gibm.gfjw.data;
 
 import ch.gibm.gfjw.dto.Product;
 
