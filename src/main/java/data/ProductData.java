@@ -1,7 +1,7 @@
-package data;
+package main.java.data;
 
-import ch.gibm.gfjw.dao.Product;
-import ch.gibm.gfjw.dao.ProductImpl;
+import ch.gibm.gfjw.dto.Product;
+import ch.gibm.gfjw.dto.ProductImpl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

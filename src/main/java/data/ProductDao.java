@@ -1,6 +1,6 @@
-package data;
+package main.java.data;
 
-import ch.gibm.gfjw.dao.Product;
+import ch.gibm.gfjw.dto.Product;
 
 import java.util.List;
 
