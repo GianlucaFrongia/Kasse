@@ -29,10 +29,10 @@ public class ProductButton extends JButton {
 		this.setBorder(BORDER);
 		this.setFont(FONT);
 		this.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mainview.getLblDisplay().setText(product.getName());
+				mainview.getLblDisplay().setText(getProduct().getName());
 //				mainview.getWarenkorb().add(product);
 			}
 		});

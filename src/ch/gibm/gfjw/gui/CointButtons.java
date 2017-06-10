@@ -13,9 +13,11 @@ public class CointButtons extends JButton{
 	
 	private static final long serialVersionUID = 1L;
 	private Coint coint;
+	private BackMoney mainView;
 
 	public CointButtons(BackMoney mainView, Coint coint) {
 		this.coint = coint;
+		this.mainView = mainView;
 		
 		this.setIcon(this.coint.getImage());
 		this.setBackground(WHITE);
@@ -24,9 +26,17 @@ public class CointButtons extends JButton{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mainView.getLblDisplay().setText(Double.toString(coint.getValue()));
+				getMainView().getLblDisplay().setText(Double.toString(getCoint().getValue()));
 //				mainView.getWarenkorb().add(product);
 			}
 		});
+	}
+	
+	private Coint getCoint(){
+		return this.coint;
+	}
+	
+	private BackMoney getMainView(){
+		return this.mainView;
 	}
 }
