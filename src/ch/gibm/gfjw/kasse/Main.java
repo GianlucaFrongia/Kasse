@@ -22,10 +22,18 @@ public class Main {
 	public static void main(String[] args) {
 		
 		ProductData data = new ProductData();
-		data.addProduct(new ProductImpl("Cola", 1, 2.00, 1.50));
-		data.addProduct(new ProductImpl("Fanta", 2, 4.00, 1.00));
+		data.deleteProduct(2);
+
+//		Product pr = new ProductImpl("Cola", 1, 2.00, 1.50);
+//
+//		Product pr2 = new ProductImpl("Fanta", 2, 4.00, 1.00);
+//		data.addProduct(pr);
+//		data.addProduct(pr2);
 		
-//		System.out.println(data.getProductList().get(0).getName());
-//		System.out.println(data.getProductList().get(1).getName());
+//		for (Product p : data.getProductList()) {
+//			System.out.println(data.getProductList().get(0));
+//
+//		}
+//		System.out.println(data.getProductList().get(1));
 	}
 }
