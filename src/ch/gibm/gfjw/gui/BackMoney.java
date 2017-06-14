@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import ch.gibm.gfjw.gui.TableModel;
 
 import ch.gibm.gfjw.dto.Coint;
 
