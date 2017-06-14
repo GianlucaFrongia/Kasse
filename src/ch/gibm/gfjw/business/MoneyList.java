@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import ch.gibm.gfjw.dto.Coint;
 
-public class MoneyList {
+public class MoneyList extends ArrayList{
 	
 	private ArrayList<Coint> moneyList = new ArrayList<>();
 	

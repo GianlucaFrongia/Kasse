@@ -24,7 +24,7 @@ public class Style {
     public final static Color GREEN = new Color(0,153,0);
     public final static Color RED = new Color(204,0,51);
 
-	private final static JButton createButton(String name){
+	public final static JButton createButton(String name){
 		JButton button = new JButton(name);
 		button.setPreferredSize(new Dimension(150,50));
 		button.setBackground(BLUE); 

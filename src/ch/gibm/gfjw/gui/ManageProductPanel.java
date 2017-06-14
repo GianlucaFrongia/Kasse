@@ -6,16 +6,21 @@ import static java.awt.Color.WHITE;
 import static ch.gibm.gfjw.gui.Style.FONTBOLD;
 
 import java.awt.BorderLayout;
+import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
 
-public class ManageProductPanel extends JPanel implements ActionListener{
+import ch.gibm.gfjw.gui.tableModel.impl.ProductTableModel;
+
+public class ManageProductPanel extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel productView;
@@ -24,8 +29,12 @@ public class ManageProductPanel extends JPanel implements ActionListener{
 	
 	public ManageProductPanel() {
 		
+		this.getRootPane().setBorder(new EmptyBorder(10, 10, 10, 10));
+		this.setSize(400,600);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout(10, 10));
-		this.setBackground(WHITE);
+		this.getContentPane().setBackground(WHITE);
+		this.getRootPane().setBackground(WHITE);
 		
 		productList = new JTable(new ProductTableModel());
 		productList.setFont(FONTBOLD);
@@ -37,7 +46,12 @@ public class ManageProductPanel extends JPanel implements ActionListener{
 		
 		btnRemoveProduct = createButton(productView, new ImageIcon("images/Buttons/Trash.png"));
 		btnSave = createButton(productView, new ImageIcon("images/Buttons/checkmark.png"));
-		btnBack = createButton(this, BorderLayout.NORTH, "< Zurück");
+		btnBack = createButton("Abbrechen");
+		this.add(btnBack, BorderLayout.NORTH);
+		
+		btnSave.addActionListener(this);
+		btnRemoveProduct.addActionListener(this);
+		btnBack.addActionListener(this);
 		
 		this.setVisible(true);
 	}
@@ -45,16 +59,19 @@ public class ManageProductPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == btnSave){
-			
+			this.dispose();
 		}
 		if (e.getSource() == btnRemoveProduct) {
-			
+			productList.remove(productList.getSelectedRow());
+			productList.repaint();
 		}
 		if (e.getSource() == btnBack) {
-			
+			this.dispose();
 		}
 	}
 	
-	
+	private void saveList(){
+		
+	}
 }
 

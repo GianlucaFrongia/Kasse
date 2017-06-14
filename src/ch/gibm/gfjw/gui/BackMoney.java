@@ -6,7 +6,6 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 
 import ch.gibm.gfjw.dto.Coint;
 
@@ -29,7 +28,7 @@ public class BackMoney extends JPanel{
 			new Coint("images/Franken/CHF200.jpg", 200.00, "200CHF"),
 	};
 	
-	public BackMoney(Double total, View mainFrame) {
+	public BackMoney(View mainFrame) {
 		
 		this.view = mainFrame;
 		
@@ -48,7 +47,7 @@ public class BackMoney extends JPanel{
 		return view.getLblDisplay();
 	}
 	
-	public DefaultTableModel getModelProductList(){
+	public TableModel getModelProductList(){
 		return view.getModelProductList();
 	}
 	

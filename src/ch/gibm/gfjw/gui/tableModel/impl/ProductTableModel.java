@@ -1,8 +1,10 @@
-package ch.gibm.gfjw.gui;
+package ch.gibm.gfjw.gui.tableModel.impl;
 
 import javax.swing.table.DefaultTableModel;
 
-public class ProductTableModel extends DefaultTableModel {
+import ch.gibm.gfjw.gui.TableModel;
+
+public class ProductTableModel extends DefaultTableModel implements TableModel{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -18,5 +20,11 @@ public class ProductTableModel extends DefaultTableModel {
 //		}
 		
 		this.addRow(new Object[]{"1", "Cola", "2.00", "1.50"});
+		this.addRow(new Object[]{"2", "Fanta", "2.00", "1.50"});
+	}
+
+	@Override
+	public void reloadList() {
+		
 	}
 }
