@@ -1,1 +1,32 @@
-{"price":1.5,"resale":2.0,"name":"Cola","id":1}{"price":1.0,"resale":4.0,"name":"Fanta","id":2}
+[
+  {
+    "name": "Cola",
+    "id": 3,
+    "resale": 2.0,
+    "price": 1.5
+  },
+  {
+    "name": "Cola",
+    "id": 5,
+    "resale": 2.0,
+    "price": 1.5
+  },
+  {
+    "name": "Fanta",
+    "id": 6,
+    "resale": 4.0,
+    "price": 1.0
+  },
+  {
+    "name": "Cola",
+    "id": 7,
+    "resale": 2.0,
+    "price": 1.5
+  },
+  {
+    "name": "Fanta",
+    "id": 8,
+    "resale": 4.0,
+    "price": 1.0
+  }
+]
