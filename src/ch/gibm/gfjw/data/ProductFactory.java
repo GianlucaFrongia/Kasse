@@ -7,7 +7,7 @@ package ch.gibm.gfjw.data;
  * @version 1.0
  */
 public class ProductFactory {
-	private ProductFactory instance;
+	private static ProductFactory instance;
 	  
 	private ProductFactory() {
 	}
@@ -29,7 +29,7 @@ public class ProductFactory {
 	/***
 	 * @return ProductFactory instance
 	 * */
-	public  ProductFactory getInstance(){
+	public static ProductFactory getInstance(){
 		if(instance == null){
 			instance = new ProductFactory();
 		} 
