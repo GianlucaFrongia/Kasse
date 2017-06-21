@@ -7,7 +7,10 @@ import ch.gibm.gfjw.dto.Product;
 import ch.gibm.gfjw.dto.ProductImpl;
 
 /**
- * Created by gianluca on 17.05.17.
+ * Main Klasse
+ *Main Klasse
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
  */
 public class Main {
 	

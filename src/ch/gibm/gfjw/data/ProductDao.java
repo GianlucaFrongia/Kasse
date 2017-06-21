@@ -5,7 +5,11 @@ import ch.gibm.gfjw.dto.Product;
 import java.util.List;
 
 /**
- * Created by gianluca on 07.06.17.
+ * ProductDao Klasse
+ * Interface
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
  */
 public interface ProductDao {
 	

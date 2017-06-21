@@ -1,22 +1,21 @@
 package ch.gibm.gfjw.data;
 
-import ch.gibm.gfjw.data.ProductDao;
-import ch.gibm.gfjw.dto.Product;
-import ch.gibm.gfjw.dto.ProductImpl;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.*;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import ch.gibm.gfjw.dto.Product;
+import ch.gibm.gfjw.dto.ProductImpl;
 
 /**
  * ProductData Klasse
