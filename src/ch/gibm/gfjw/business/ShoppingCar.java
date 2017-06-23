@@ -9,6 +9,8 @@ package ch.gibm.gfjw.business;
 
 import java.util.ArrayList;
 
+import ch.gibm.gfjw.data.ProductFactory;
+import ch.gibm.gfjw.data.ProductLogDAO;
 import ch.gibm.gfjw.dto.Product;
 
 public class ShoppingCar {
@@ -67,5 +69,7 @@ public class ShoppingCar {
 	 * Schreibt die Liste in ein Dokument.
 	 */
 	public void  writeShoppingCar(){
+		ProductLogDAO log = ProductFactory.getInstance().createProdctLogDAO();
+		log.logProducts(getShoppingCar());
 	}
 }
