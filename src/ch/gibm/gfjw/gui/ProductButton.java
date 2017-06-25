@@ -33,7 +33,8 @@ public class ProductButton extends JButton {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mainview.getLblDisplay().setText(getProduct().getName());
-//				mainview.getWarenkorb().add(product);
+				mainview.getShoppingCart().addProduct(product);
+				mainview.reloadList();
 			}
 		});
 	}

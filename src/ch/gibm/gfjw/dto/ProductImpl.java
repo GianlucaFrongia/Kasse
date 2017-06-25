@@ -15,6 +15,10 @@ public class ProductImpl implements Product{
 		this.price = price;
 	}
 
+	public ProductImpl() {
+		super();
+	}
+
 	public String getName() {
 		return name;
 	}

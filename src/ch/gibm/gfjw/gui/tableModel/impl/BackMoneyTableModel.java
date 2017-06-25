@@ -23,12 +23,15 @@ public class BackMoneyTableModel extends DefaultTableModel implements TableModel
 
 	@Override
 	public void reloadList() {
-		for (int i = 0; i >= this.getRowCount(); i++) {
+		for (int i = this.getRowCount() - 1; i >= 0; i--) {
 			this.removeRow(i);
 		}
 		for(Coint coint : this.moneyList.getMoneyList()){
 			this.addRow(new Object[]{coint.getValue()});
 		}
+		
+		this.addRow(new Object[]{"", ""});
+		this.addRow(new Object[]{"Total", this.moneyList.getTotal()});
 	}
 }
 

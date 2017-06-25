@@ -23,6 +23,7 @@ import javax.swing.border.EmptyBorder;
 
 import ch.gibm.gfjw.business.MoneyList;
 import ch.gibm.gfjw.business.ShoppingCar;
+import ch.gibm.gfjw.dto.ProductImpl;
 import ch.gibm.gfjw.gui.tableModel.impl.BackMoneyTableModel;
 import ch.gibm.gfjw.gui.tableModel.impl.ShoppingCarTableModel;
 import ch.gibm.gfjw.gui.TableModel;
@@ -38,7 +39,7 @@ public class View extends JFrame implements ActionListener{
     private JPanel backMoney = new BackMoney(this);
     private ShoppingCar shoppingCar;
     private MoneyList cointList;
-    private Boolean teamPrice;
+    private Boolean teamPrice = false;
     
 	public View() {
 		this.shoppingCar = new ShoppingCar();
@@ -91,6 +92,9 @@ public class View extends JFrame implements ActionListener{
 //			productButtonView.add(new ProductButton(product, this));
 //		}
 		
+		productButtonView.add(new ProductButton(new ProductImpl("Cola", 1, 2.50, 2.00), this));
+		productButtonView.add(new ProductButton(new ProductImpl("Fanta", 1, 2.50, 2.00), this));
+		
 		btnDelete.addActionListener(this);
 		btnEnter.addActionListener(this);
 		btnSettings.addActionListener(this);
@@ -116,19 +120,29 @@ public class View extends JFrame implements ActionListener{
 	    		   productButtonView.setVisible(true);
 	    		   shoppingCar = new ShoppingCar();
 	    		   modelProductList = new ShoppingCarTableModel(shoppingCar);
+	    		   this.repaint();
 	    	   }
+	    	   tblProductView.setModel(modelProductList);
 	    }
 	    
 	    else if (e.getSource() == this.btnDelete){
-	    	if(productButtonView.isVisible() == true){
-	    		shoppingCar.deleteProduct(tblProductView.getSelectedRow());
-	    	}else if(backMoney.isVisible() == true){
-	    		cointList.deleteCoint(tblProductView.getSelectedRow());
-	    	}
-	    	modelProductList.reloadList();
+	    	if (modelProductList.getRowCount() != 0){
+		    	if(productButtonView.isVisible() == true){
+		    		shoppingCar.deleteProduct(tblProductView.getSelectedRow());
+		    	}else if(backMoney.isVisible() == true){
+		    		cointList.deleteCoint(tblProductView.getSelectedRow());
+		    	}
+		    	modelProductList.reloadList();
+		    	lblDisplay.setText("Produkt wurde entfernt");
+		    }
 	    }
 	     
 	    else if (e.getSource() == this.btnTeam){
+	    	if(teamPrice){
+	    		lblDisplay.setText("Teammodus deaktiviert");
+	    	}else{
+	    		lblDisplay.setText("Teammodus aktiviert");
+	    	}
 	    		teamPrice = !teamPrice;
 	    }
 	     
@@ -155,5 +169,14 @@ public class View extends JFrame implements ActionListener{
 
 	public ShoppingCar getShoppingCart() {
 		return shoppingCar;
+	}
+	
+	public MoneyList getCointList() {
+		return cointList;
+	}
+	
+	public void reloadList(){
+		modelProductList.reloadList();
+		tblProductView.repaint();
 	}
 }

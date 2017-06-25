@@ -19,12 +19,14 @@ public class ShoppingCarTableModel extends DefaultTableModel implements TableMod
 	
 	@Override
 	public void reloadList(){
-		for (int i = 0; i >= this.getRowCount(); i++) {
+		for (int i = this.getRowCount() - 1; i >= 0; i--) {
 			this.removeRow(i);
 		}
 		for(Product product : this.shoppingcCar.getShoppingCar()){
 			this.addRow(new Object[]{product.getName(), product.getResale()});
 		}
+		this.addRow(new Object[]{"", ""});
+		this.addRow(new Object[]{"Total", this.shoppingcCar.getTotal()});
 	}
 
 	public ShoppingCar getShoppingcCar() {

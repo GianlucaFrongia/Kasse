@@ -27,7 +27,8 @@ public class CointButtons extends JButton{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				getMainView().getLblDisplay().setText(Double.toString(getCoint().getValue()));
-//				mainView.getWarenkorb().add(product);
+				mainView.getMoneyList().addCoint(coint);
+				mainView.reloadList();
 			}
 		});
 	}

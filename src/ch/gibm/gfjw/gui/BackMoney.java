@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import ch.gibm.gfjw.gui.TableModel;
-
+import ch.gibm.gfjw.business.MoneyList;
 import ch.gibm.gfjw.dto.Coint;
 
 public class BackMoney extends JPanel{
@@ -32,12 +32,12 @@ public class BackMoney extends JPanel{
 	public BackMoney(View mainFrame) {
 		
 		this.view = mainFrame;
-		
 		this.setLayout(new GridLayout(3, 4));
 		
 		for(Coint coint : coints){
 			this.add(new CointButtons(this, coint));
 		}
+		
 		this.setBackground(WHITE);
 		this.setLayout(new GridLayout(3, 4));
 		
@@ -52,11 +52,12 @@ public class BackMoney extends JPanel{
 		return view.getModelProductList();
 	}
 	
-	public JButton getBtnDelete(){
-		return view.getBtnDelete();
+	public MoneyList getMoneyList(){
+		return this.view.getCointList();
 	}
 	
-	public JButton getBtnEnter(){
-		return view.getBtnEnter();
+	public void reloadList(){
+		view.reloadList();
 	}
+	
 }
