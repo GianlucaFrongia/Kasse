@@ -1,7 +1,7 @@
 package ch.gibm.gfjw.gui;
 
 import static ch.gibm.gfjw.gui.Style.BORDER;
-import static ch.gibm.gfjw.gui.Style.FONT;
+import static ch.gibm.gfjw.gui.Style.FONTBOLD;
 import static java.awt.Color.WHITE;
 
 import java.awt.Color;
@@ -28,7 +28,7 @@ public class ProductButton extends JButton {
 		this.setText(product.getName());
 		this.setBackground(WHITE);
 		this.setBorder(BORDER);
-		this.setFont(FONT);
+		this.setFont(FONTBOLD);
 		this.addActionListener(new ActionListener() {
 
 			@Override

@@ -5,6 +5,7 @@ import static java.awt.Color.WHITE;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -13,7 +14,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableModel;
 
 public class Style {
 
@@ -64,6 +70,7 @@ public class Style {
 		label.setBackground(BLUE);
 		label.setForeground(WHITE);
 		label.setOpaque(true); 
+		label.setBorder(new EmptyBorder(0, 10, 0, 0));
 		return label;
 	}
 	
@@ -94,5 +101,24 @@ public class Style {
 		JPanel panel = new JPanel();
 		panel.setBackground(WHITE);
 		return panel;
+	}
+	
+	public final static JScrollPane createScrollPane(Component component){
+		JScrollPane scroll = new JScrollPane(component);
+		scroll.getViewport().setBackground(WHITE);
+		scroll.setBorder(null);
+		return scroll;
+	}
+	
+	public final static JTable createTable(TableModel model){
+		JTable table = new JTable(model);
+		JTableHeader header = table.getTableHeader();
+		table.setFont(FONT);
+		table.setBackground(WHITE);
+		table.setRowHeight(30);
+		header.setBackground(BLUE);
+		header.setForeground(WHITE);
+		header.setFont(FONT);
+		return table;
 	}
 }

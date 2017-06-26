@@ -3,7 +3,6 @@ import static java.awt.Color.WHITE;
 
 import java.awt.GridLayout;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import ch.gibm.gfjw.gui.TableModel;

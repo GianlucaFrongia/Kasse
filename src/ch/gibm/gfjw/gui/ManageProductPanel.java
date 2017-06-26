@@ -1,8 +1,9 @@
 package ch.gibm.gfjw.gui;
  
-import static ch.gibm.gfjw.gui.Style.FONTBOLD;
 import static ch.gibm.gfjw.gui.Style.createButton;
 import static ch.gibm.gfjw.gui.Style.createJPanel;
+import static ch.gibm.gfjw.gui.Style.createTable;
+import static ch.gibm.gfjw.gui.Style.createScrollPane;
 import static java.awt.Color.WHITE;
 
 import java.awt.BorderLayout;
@@ -15,7 +16,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
@@ -45,9 +45,7 @@ public class ManageProductPanel extends JFrame implements ActionListener{
 		this.getContentPane().setBackground(WHITE);
 		this.getRootPane().setBackground(WHITE);
 		
-		tblProductList = new JTable(model);
-		tblProductList.setFont(FONTBOLD);
-		tblProductList.setRowHeight(30);
+		tblProductList = createTable(model);
 		
 		model.addColumn("ID");
 		model.addColumn("Name");
@@ -60,7 +58,7 @@ public class ManageProductPanel extends JFrame implements ActionListener{
 		
 		productView = createJPanel(new GridLayout(1, 3, 20, 20));
 		this.add(productView, BorderLayout.SOUTH);
-		this.add(new JScrollPane(tblProductList), BorderLayout.CENTER);
+		this.add(createScrollPane(tblProductList), BorderLayout.CENTER);
 		
 		btnRemoveProduct = createButton(productView, new ImageIcon("images/Buttons/Trash.png"));
 		btnSave = createButton(productView, new ImageIcon("images/Buttons/checkmark.png"));

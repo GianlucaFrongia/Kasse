@@ -1,9 +1,10 @@
 package ch.gibm.gfjw.gui;
 import static java.awt.Color.WHITE;
-import static ch.gibm.gfjw.gui.Style.FONT;
 import static ch.gibm.gfjw.gui.Style.createButton;
 import static ch.gibm.gfjw.gui.Style.createJPanel;
 import static ch.gibm.gfjw.gui.Style.createLabel;
+import static ch.gibm.gfjw.gui.Style.createTable;
+import static ch.gibm.gfjw.gui.Style.createScrollPane;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -17,7 +18,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
@@ -25,7 +25,6 @@ import ch.gibm.gfjw.business.MoneyList;
 import ch.gibm.gfjw.business.ProductLogic;
 import ch.gibm.gfjw.business.ShoppingCar;
 import ch.gibm.gfjw.dto.Product;
-import ch.gibm.gfjw.dto.ProductImpl;
 import ch.gibm.gfjw.gui.tableModel.impl.BackMoneyTableModel;
 import ch.gibm.gfjw.gui.tableModel.impl.ShoppingCarTableModel;
 import ch.gibm.gfjw.gui.TableModel;
@@ -68,12 +67,8 @@ public class View extends JFrame implements ActionListener{
 		
 		lblDisplay = createLabel(400, 50);
 		
-		tblProductView = new JTable();
-		tblProductView.setModel(modelProductList);
-		tblProductView.setFont(FONT);
-		tblProductView.setBackground(WHITE);
+		tblProductView = createTable(modelProductList);
 		tblProductView.setSize(400, 700);
-		tblProductView.setRowHeight(30);
 
 		btnEnter = createButton(manageProductView, new ImageIcon("images/Buttons/checkmark.png"));
 		btnDelete = createButton(manageProductView, new ImageIcon("images/Buttons/Trash.png"));
@@ -91,7 +86,7 @@ public class View extends JFrame implements ActionListener{
 		switchViewRight.add(backMoney, BorderLayout.CENTER);
 		
 		showProductView.add(lblDisplay, BorderLayout.NORTH);
-		showProductView.add(new JScrollPane(tblProductView), BorderLayout.CENTER);
+		showProductView.add(createScrollPane(tblProductView), BorderLayout.CENTER);
 
 		loadProductbuttons();
 		
