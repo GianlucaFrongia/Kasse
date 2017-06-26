@@ -22,7 +22,9 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import ch.gibm.gfjw.business.MoneyList;
+import ch.gibm.gfjw.business.ProductLogic;
 import ch.gibm.gfjw.business.ShoppingCar;
+import ch.gibm.gfjw.dto.Product;
 import ch.gibm.gfjw.dto.ProductImpl;
 import ch.gibm.gfjw.gui.tableModel.impl.BackMoneyTableModel;
 import ch.gibm.gfjw.gui.tableModel.impl.ShoppingCarTableModel;
@@ -35,7 +37,7 @@ public class View extends JFrame implements ActionListener{
 	private JTable tblProductView;
 	private TableModel modelProductList;
 	private JButton btnEnter, btnDelete, btnTeam, btnSettings;
-    private JPanel mainView, productButtonView , manageProductView, showProductView, menuBarView, switchView;
+    private JPanel mainView, productButtonView , manageProductView, showProductView, menuBarView, switchViewRight, switchViewLeft;
     private JPanel backMoney = new BackMoney(this);
     private ShoppingCar shoppingCar;
     private MoneyList cointList;
@@ -47,7 +49,7 @@ public class View extends JFrame implements ActionListener{
 		
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("Images/mylogo.png"));
 		
-		this.setTitle("GK Kasse");
+		this.setTitle("Gewoelbekeller Kasse");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocation(0, 0);
 		this.setSize(1070, 1000);
@@ -61,7 +63,8 @@ public class View extends JFrame implements ActionListener{
 		showProductView = createJPanel(new BorderLayout(50, 50));
 		manageProductView = createJPanel(new GridLayout(6, 1, 10, 50));
 		menuBarView = createJPanel(new GridLayout(1, 20, 20, 20));
-		switchView = createJPanel(new CardLayout(10, 10));
+		switchViewRight = createJPanel(new CardLayout(10, 10));
+		switchViewLeft = createJPanel(new CardLayout(10, 10));
 		
 		lblDisplay = createLabel(400, 50);
 		
@@ -81,20 +84,16 @@ public class View extends JFrame implements ActionListener{
 		this.add(mainView, BorderLayout.CENTER);
 		this.add(showProductView, BorderLayout.EAST);
 		this.add(menuBarView, BorderLayout.NORTH);
-		mainView.add(switchView, BorderLayout.CENTER);
-		mainView.add(manageProductView, BorderLayout.EAST);
-		switchView.add(productButtonView, BorderLayout.CENTER);
-		switchView.add(backMoney, BorderLayout.CENTER);
+		mainView.add(switchViewRight, BorderLayout.CENTER);
+		mainView.add(switchViewLeft, BorderLayout.EAST);
+		switchViewLeft.add(manageProductView);
+		switchViewRight.add(productButtonView, BorderLayout.CENTER);
+		switchViewRight.add(backMoney, BorderLayout.CENTER);
 		
 		showProductView.add(lblDisplay, BorderLayout.NORTH);
 		showProductView.add(new JScrollPane(tblProductView), BorderLayout.CENTER);
-		
-//		for (Product product : new ProductLogic().getList()) {
-//			productButtonView.add(new ProductButton(product, this));
-//		}
-		
-		productButtonView.add(new ProductButton(new ProductImpl("Cola", 1, 2.50, 2.00), this));
-		productButtonView.add(new ProductButton(new ProductImpl("Fanta", 1, 2.50, 2.00), this));
+
+		loadProductbuttons();
 		
 		btnDelete.addActionListener(this);
 		btnEnter.addActionListener(this);
@@ -107,34 +106,39 @@ public class View extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
-		 		 
-	    if (e.getSource() == this.btnEnter){
-	    	   if(productButtonView.isVisible() == true){
-	    		   shoppingCar.writeShoppingCar();
-	    		   productButtonView.setVisible(false);
-	    		   backMoney.setVisible(true);
-	    		   cointList = new MoneyList();
-	    		   modelProductList = new BackMoneyTableModel(cointList);
-	    	   }else if(backMoney.isVisible() == true){
-	    		   lblDisplay.setText("Nächster Kunde");
-	    		   backMoney.setVisible(false);
-	    		   productButtonView.setVisible(true);
-	    		   shoppingCar = new ShoppingCar();
-	    		   modelProductList = new ShoppingCarTableModel(shoppingCar);
-	    		   this.repaint();
+		if (e.getSource() == this.btnEnter){
+			if (modelProductList.getRowCount() > 2){
+				if(productButtonView.isVisible() == true){
+					shoppingCar.writeShoppingCar();
+		    		productButtonView.setVisible(false);
+		    		backMoney.setVisible(true);
+		    		cointList = new MoneyList();
+		    		modelProductList = new BackMoneyTableModel(cointList);
+				}else if(backMoney.isVisible() == true){
+		    		lblDisplay.setText("Nächster Kunde");
+		    		backMoney.setVisible(false);
+		    		productButtonView.setVisible(true);
+		    		shoppingCar = new ShoppingCar();
+		    		modelProductList = new ShoppingCarTableModel(shoppingCar);
+		    		this.repaint();
 	    	   }
 	    	   tblProductView.setModel(modelProductList);
+			} else {
+				lblDisplay.setText("Keine Produkte im Warenkorb");
+			}
 	    }
 	    
 	    else if (e.getSource() == this.btnDelete){
-	    	if (modelProductList.getRowCount() > 2){
+	    	if (tblProductView.getSelectedRow() >= 0 && tblProductView.getSelectedRow() < tblProductView.getRowCount() - 2){
 		    	if(productButtonView.isVisible() == true){
 		    		shoppingCar.deleteProduct(tblProductView.getSelectedRow());
 		    	}else if(backMoney.isVisible() == true){
 		    		cointList.deleteCoint(tblProductView.getSelectedRow());
 		    	}
-		    	modelProductList.reloadList();
-		    	lblDisplay.setText("Produkt wurde entfernt");
+		    modelProductList.reloadList();
+		    lblDisplay.setText("Produkt wurde entfernt");
+		    } else {
+		    	lblDisplay.setText("Kein Produkt gew�lt");
 		    }
 	    }
 	     
@@ -144,11 +148,11 @@ public class View extends JFrame implements ActionListener{
 	    	}else{
 	    		lblDisplay.setText("Teammodus aktiviert");
 	    	}
-	    		teamPrice = !teamPrice;
+	    	teamPrice = !teamPrice;
 	    }
 	     
 	    else if (e.getSource() == this.btnSettings){
-	        ManageProductPanel manageProductPanel = new ManageProductPanel();
+	        ManageProductPanel manageProductPanel = new ManageProductPanel(this);
 	    }
 	}
 
@@ -179,5 +183,14 @@ public class View extends JFrame implements ActionListener{
 	public void reloadList(){
 		modelProductList.reloadList();
 		tblProductView.repaint();
+	}
+	
+	public void loadProductbuttons(){
+		productButtonView.removeAll();
+		for (Product product : new ProductLogic().getList()) {
+			productButtonView.add(new ProductButton(product, this));
+		}
+		this.revalidate();
+		this.repaint();
 	}
 }

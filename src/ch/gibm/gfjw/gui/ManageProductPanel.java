@@ -32,8 +32,11 @@ public class ManageProductPanel extends JFrame implements ActionListener{
 	private JButton btnRemoveProduct, btnSave, btnBack, btnAdd;
 	private ProductLogic logic = new ProductLogic();
 	private DefaultTableModel model = new DefaultTableModel();
+	private View view;
 	
-	public ManageProductPanel() {
+	public ManageProductPanel(View view) {
+		
+		this.view = view;
 		
 		this.getRootPane().setBorder(new EmptyBorder(10, 10, 10, 10));
 		this.setSize(400,600);
@@ -94,6 +97,7 @@ public class ManageProductPanel extends JFrame implements ActionListener{
 				}
 			}
 			this.dispose();
+			this.view.loadProductbuttons();
 		}
 		
 		if (e.getSource() == btnRemoveProduct) {
