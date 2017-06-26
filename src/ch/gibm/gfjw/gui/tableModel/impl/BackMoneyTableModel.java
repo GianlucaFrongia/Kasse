@@ -35,5 +35,10 @@ public class BackMoneyTableModel extends DefaultTableModel implements TableModel
 		this.addRow(new Object[]{"", ""});
 		this.addRow(new Object[]{"Total: " + DoubletoCHF(this.moneyList.getTotal())});
 	}
+	
+	@Override
+	public boolean isCellEditable(int row, int column){
+      return false;
+    }
 }
 

@@ -122,7 +122,7 @@ public class View extends JFrame implements ActionListener{
 				btnTeam.setEnabled(!btnTeam.isEnabled());
 				tblProductView.setModel(modelProductList);
 			} else {
-				lblDisplay.setText("Keine Listeneintr‰ge");
+				lblDisplay.setText("Keine Listeneintr√§ge");
 			}
 	    }
 	    
@@ -136,7 +136,7 @@ public class View extends JFrame implements ActionListener{
 		    modelProductList.reloadList();
 		    lblDisplay.setText("Produkt wurde entfernt");
 		    } else {
-		    	lblDisplay.setText("Kein Produkt gew‰lt");
+		    	lblDisplay.setText("Kein Produkt gew√§lt");
 		    }
 	    }
 	     

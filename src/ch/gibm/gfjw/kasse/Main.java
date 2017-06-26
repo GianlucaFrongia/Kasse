@@ -1,10 +1,6 @@
 package ch.gibm.gfjw.kasse;
 
-import java.util.ArrayList;
-
-import ch.gibm.gfjw.data.ProductLogData;
-import ch.gibm.gfjw.dto.Product;
-import ch.gibm.gfjw.dto.ProductImpl;
+import ch.gibm.gfjw.gui.View;
 
 /**
  * Main Klasse
@@ -17,7 +13,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		//ProductData data = new ProductData();
-		ProductLogData dump = new ProductLogData();
+//		ProductLogData dump = new ProductLogData();
 //		ArrayList<Product> shoppingCar = new ArrayList<Product>();
 //		
 //		//	data.deleteProduct(2);
@@ -28,7 +24,7 @@ public class Main {
 //
 //		shoppingCar.add(pr);
 //		shoppingCar.add(pr2);
-		System.out.print(dump.getList("2017.06.14"));
+//		System.out.print(dump.getList("2017.06.14"));
 		
 
 		//		data.addProduct(pr);
@@ -38,5 +34,6 @@ public class Main {
 //
 //		}
 //		System.out.println(data.getProductList().get(1));
+		View view = new View();
 	}
 }

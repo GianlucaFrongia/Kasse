@@ -30,6 +30,11 @@ public class ShoppingCarTableModel extends DefaultTableModel implements TableMod
 		this.addRow(new Object[]{"", ""});
 		this.addRow(new Object[]{"Total", DoubletoCHF(this.shoppingcCar.getTotal())});
 	}
+	
+	@Override
+	public boolean isCellEditable(int row, int column){
+      return false;
+    }
 
 	public ShoppingCar getShoppingcCar() {
 		return shoppingcCar;
