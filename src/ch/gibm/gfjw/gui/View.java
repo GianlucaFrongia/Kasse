@@ -155,6 +155,10 @@ public class View extends JFrame implements ActionListener{
 	        ManageProductPanel manageProductPanel = new ManageProductPanel(this);
 	    }
 	}
+	
+	public Boolean isTeamPrice() {
+		return teamPrice;
+	}
 
 	public JLabel getLblDisplay() {
 		return lblDisplay;

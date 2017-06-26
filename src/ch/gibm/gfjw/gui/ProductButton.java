@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import ch.gibm.gfjw.dto.Product;
+import ch.gibm.gfjw.dto.TeamPrice;
 
 
 public class ProductButton extends JButton {
@@ -32,8 +33,12 @@ public class ProductButton extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if (mainview.isTeamPrice()){
+					mainview.getShoppingCart().addProduct(new TeamPrice(product.getName(), product.getId(), product.getResale(), product.getPrice()));
+				} else {
+					mainview.getShoppingCart().addProduct(product);
+				}
 				mainview.getLblDisplay().setText(getProduct().getName());
-				mainview.getShoppingCart().addProduct(product);
 				mainview.reloadList();
 			}
 		});

@@ -6,7 +6,7 @@ public class TeamPrice extends ProductImpl{
 
 	public TeamPrice(String name, int id, double resale, double price) {
 		super(name, id, resale, price);
-		this.resale = resale;
+		this.resale = (super.getResale() * 0.6);
 	}
 	
 	@Override
