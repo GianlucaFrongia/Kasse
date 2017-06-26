@@ -121,10 +121,11 @@ public class View extends JFrame implements ActionListener{
 		    		shoppingCar = new ShoppingCar();
 		    		modelProductList = new ShoppingCarTableModel(shoppingCar);
 		    		this.repaint();
-	    	   }
-	    	   tblProductView.setModel(modelProductList);
+		    	}
+				btnTeam.setEnabled(!btnTeam.isEnabled());
+				tblProductView.setModel(modelProductList);
 			} else {
-				lblDisplay.setText("Keine Produkte im Warenkorb");
+				lblDisplay.setText("Keine Listeneinträge");
 			}
 	    }
 	    
