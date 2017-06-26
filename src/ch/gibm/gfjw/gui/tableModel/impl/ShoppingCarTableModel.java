@@ -1,5 +1,7 @@
 package ch.gibm.gfjw.gui.tableModel.impl;
 
+import static ch.gibm.gfjw.gui.Style.DoubletoCHF;
+
 import javax.swing.table.DefaultTableModel;
 
 import ch.gibm.gfjw.business.ShoppingCar;
@@ -23,10 +25,10 @@ public class ShoppingCarTableModel extends DefaultTableModel implements TableMod
 			this.removeRow(i);
 		}
 		for(Product product : this.shoppingcCar.getShoppingCar()){
-			this.addRow(new Object[]{product.getName(), product.getResale()});
+			this.addRow(new Object[]{product.getName(), DoubletoCHF(product.getResale())});
 		}
 		this.addRow(new Object[]{"", ""});
-		this.addRow(new Object[]{"Total", this.shoppingcCar.getTotal()});
+		this.addRow(new Object[]{"Total", DoubletoCHF(this.shoppingcCar.getTotal())});
 	}
 
 	public ShoppingCar getShoppingcCar() {

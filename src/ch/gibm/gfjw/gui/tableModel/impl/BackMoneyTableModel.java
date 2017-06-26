@@ -1,5 +1,7 @@
 package ch.gibm.gfjw.gui.tableModel.impl;
 
+import static ch.gibm.gfjw.gui.Style.DoubletoCHF;
+
 import javax.swing.table.DefaultTableModel;
 
 import ch.gibm.gfjw.business.MoneyList;
@@ -27,11 +29,11 @@ public class BackMoneyTableModel extends DefaultTableModel implements TableModel
 			this.removeRow(i);
 		}
 		for(Coint coint : this.moneyList.getMoneyList()){
-			this.addRow(new Object[]{coint.getValue()});
+			this.addRow(new Object[]{DoubletoCHF(coint.getValue())});
 		}
 		
 		this.addRow(new Object[]{"", ""});
-		this.addRow(new Object[]{"Total", this.moneyList.getTotal()});
+		this.addRow(new Object[]{"Total: " + DoubletoCHF(this.moneyList.getTotal())});
 	}
 }
 

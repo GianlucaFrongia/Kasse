@@ -1,6 +1,7 @@
 package ch.gibm.gfjw.gui;
 
 import static java.awt.Color.WHITE;
+import static ch.gibm.gfjw.gui.Style.DoubletoCHF;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,15 +27,17 @@ public class CointButtons extends JButton{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				getMainView().getLblDisplay().setText(Double.toString(getCoint().getValue()));
 				mainView.getMoneyList().addCoint(coint);
+				String ausgabeText;
+				if (mainView.getPurchaseTotal() >= mainView.getMoneyList().getTotal()){
+					ausgabeText = "Es fehlen: " + DoubletoCHF(mainView.getPurchaseTotal() - mainView.getMoneyList().getTotal());
+				} else {
+					ausgabeText = "Rückgeld: " + DoubletoCHF(mainView.getMoneyList().getTotal() - mainView.getPurchaseTotal());
+				}
+				getMainView().getLblDisplay().setText(ausgabeText);
 				mainView.reloadList();
 			}
 		});
-	}
-	
-	private Coint getCoint(){
-		return this.coint;
 	}
 	
 	private BackMoney getMainView(){

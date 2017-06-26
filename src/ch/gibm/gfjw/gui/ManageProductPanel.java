@@ -85,19 +85,18 @@ public class ManageProductPanel extends JFrame implements ActionListener{
 				for(int i = 0; i < data.size(); i++) {
 				    Vector<String> row = (Vector)data.get(i);
 				    if(row != null) {
-					Product product = new ProductImpl();
-					product.setId(Integer.parseInt(row.get(0)));
-					product.setName(row.get(1));
-					product.setPrice(Double.parseDouble(row.get(2)));
-					product.setResale(Double.parseDouble(row.get(3)));
-					logic.addProduct(product);
+						Product product = new ProductImpl();
+						product.setId(Integer.parseInt(row.get(0)));
+						product.setName(row.get(1));
+						product.setPrice(Double.parseDouble(row.get(2)));
+						product.setResale(Double.parseDouble(row.get(3)));
+						logic.addProduct(product);
 				    }
 				}
 			}
 			this.dispose();
 			this.view.loadProductbuttons();
 		}
-		
 		if (e.getSource() == btnRemoveProduct) {
 			if (model.getRowCount() != 0){
 				model.removeRow(tblProductList.getSelectedRow());
@@ -114,4 +113,3 @@ public class ManageProductPanel extends JFrame implements ActionListener{
 		}
 	}
 }
-

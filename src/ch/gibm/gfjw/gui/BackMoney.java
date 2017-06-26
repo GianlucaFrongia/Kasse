@@ -59,4 +59,7 @@ public class BackMoney extends JPanel{
 		view.reloadList();
 	}
 	
+	public Double getPurchaseTotal(){
+		return view.getShoppingCart().getTotal();
+	}
 }

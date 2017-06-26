@@ -5,6 +5,7 @@ import static ch.gibm.gfjw.gui.Style.createJPanel;
 import static ch.gibm.gfjw.gui.Style.createLabel;
 import static ch.gibm.gfjw.gui.Style.createTable;
 import static ch.gibm.gfjw.gui.Style.createScrollPane;
+import static ch.gibm.gfjw.gui.Style.DoubletoCHF;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -107,6 +108,7 @@ public class View extends JFrame implements ActionListener{
 					shoppingCar.writeShoppingCar();
 		    		productButtonView.setVisible(false);
 		    		backMoney.setVisible(true);
+		    		lblDisplay.setText(DoubletoCHF(shoppingCar.getTotal()));
 		    		cointList = new MoneyList();
 		    		modelProductList = new BackMoneyTableModel(cointList);
 				}else if(backMoney.isVisible() == true){

@@ -98,7 +98,7 @@ public class Style {
 	}
 
 	private final static JPanel createJPanel() {
-		JPanel panel = new JPanel();
+		JPanel panel = new JPanel();	
 		panel.setBackground(WHITE);
 		return panel;
 	}
@@ -116,9 +116,14 @@ public class Style {
 		table.setFont(FONT);
 		table.setBackground(WHITE);
 		table.setRowHeight(30);
+		table.setBorder(null);
 		header.setBackground(BLUE);
 		header.setForeground(WHITE);
 		header.setFont(FONT);
 		return table;
+	}
+	
+	public final static String DoubletoCHF(Double value){
+		return String.format("%.2f", value) + " CHF";
 	}
 }
