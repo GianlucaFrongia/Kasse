@@ -39,7 +39,7 @@ public class ManageProductPanel extends JFrame implements ActionListener{
 		this.view = view;
 		
 		this.getRootPane().setBorder(new EmptyBorder(10, 10, 10, 10));
-		this.setSize(400,600);
+		this.setSize(500,600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout(10, 10));
 		this.getContentPane().setBackground(WHITE);
@@ -65,7 +65,7 @@ public class ManageProductPanel extends JFrame implements ActionListener{
 		btnRemoveProduct = createButton(productView, new ImageIcon("images/Buttons/Trash.png"));
 		btnSave = createButton(productView, new ImageIcon("images/Buttons/checkmark.png"));
 		btnBack = createButton("Abbrechen");
-		btnAdd = createButton(productView, "Hinzufügen");
+		btnAdd = createButton(productView, new ImageIcon("images/buttons/plus.png"));
 		this.add(btnBack, BorderLayout.NORTH);
 		
 		btnSave.addActionListener(this);
