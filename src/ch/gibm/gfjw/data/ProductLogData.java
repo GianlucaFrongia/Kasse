@@ -28,8 +28,8 @@ import ch.gibm.gfjw.dto.ProductImpl;
  */
 public class ProductLogData implements ProductLogDAO {
 	
-	Date date = new Date();
-	ArrayList<Product> productLog = new ArrayList<Product>();
+	private Date date = new Date();
+	private ArrayList<Product> productLog = new ArrayList<Product>();
 	private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	private DateFormat dateFormat = new SimpleDateFormat("MM.dd");
 

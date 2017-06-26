@@ -98,7 +98,7 @@ public class ManageProductPanel extends JFrame implements ActionListener{
 			this.view.loadProductbuttons();
 		}
 		if (e.getSource() == btnRemoveProduct) {
-			if (model.getRowCount() != 0){
+			if (model.getRowCount() != 0 && tblProductList.getSelectedRow() >= 0){
 				model.removeRow(tblProductList.getSelectedRow());
 				tblProductList.repaint();
 			}

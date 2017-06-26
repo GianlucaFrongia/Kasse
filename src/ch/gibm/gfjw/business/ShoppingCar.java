@@ -7,11 +7,14 @@
  */
 package ch.gibm.gfjw.business;
 
+import java.awt.List;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import ch.gibm.gfjw.data.ProductFactory;
 import ch.gibm.gfjw.data.ProductLogDAO;
 import ch.gibm.gfjw.dto.Product;
+import ch.gibm.gfjw.dto.ProductImpl;
 
 public class ShoppingCar {
 	
@@ -70,6 +73,14 @@ public class ShoppingCar {
 	 */
 	public void  writeShoppingCar(){
 		ProductLogDAO log = ProductFactory.getInstance().createProdctLogDAO();
-		log.logProducts(getShoppingCar());
+		ArrayList<Product> productList = new ArrayList<Product>();
+		for (Product product : getShoppingCar()){
+			if (product.getClass().getName().equals("ch.gibm.gfjw.dto.TeamPrice")){
+				productList.add(new ProductImpl(product.getName(), product.getId(), product.getResale(), product.getPrice()));
+			} else {
+				productList.add(product);
+			}
+		}
+		log.logProducts(productList);
 	}
 }

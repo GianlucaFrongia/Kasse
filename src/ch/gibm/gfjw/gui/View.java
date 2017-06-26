@@ -59,7 +59,7 @@ public class View extends JFrame implements ActionListener{
 		this.setLayout(new BorderLayout(30,30));
 		
 		mainView = createJPanel(new BorderLayout(10, 10));
-		productButtonView = createJPanel(new GridLayout(4,4,20,20));
+		productButtonView = createJPanel(new GridLayout(6,4,20,20));
 		showProductView = createJPanel(new BorderLayout(50, 50));
 		manageProductView = createJPanel(new GridLayout(6, 1, 10, 50));
 		menuBarView = createJPanel(new GridLayout(1, 20, 20, 20));
@@ -188,8 +188,13 @@ public class View extends JFrame implements ActionListener{
 	}
 	
 	public void loadProductbuttons(){
+		ProductLogic logic = new ProductLogic();
 		productButtonView.removeAll();
-		for (Product product : new ProductLogic().getList()) {
+		
+		for (Product product : logic.getList()) {
+			if(logic.getList().size() > 24){
+				productButtonView.setLayout(new GridLayout((logic.getList().size() / 3), 4, 20, 20));
+			}
 			productButtonView.add(new ProductButton(product, this));
 		}
 		this.revalidate();
