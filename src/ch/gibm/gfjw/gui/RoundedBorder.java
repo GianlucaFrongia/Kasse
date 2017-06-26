@@ -5,6 +5,7 @@
 
 package ch.gibm.gfjw.gui;
 
+import java.awt.Color;
 import java.awt.Insets;
 import javax.swing.border.*;
 import static ch.gibm.gfjw.gui.Style.BLUE;
@@ -30,7 +31,7 @@ public class RoundedBorder implements Border {
 
 	@Override
 	public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+		g.setColor(Color.lightGray);
 		g.drawRoundRect(x, y, width-1, height-1, radius, radius);
-		g.setColor(BLUE);
 	}
 }

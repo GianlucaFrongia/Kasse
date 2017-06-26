@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
@@ -51,12 +52,12 @@ public class ManageProductPanel extends JFrame implements ActionListener{
 		model.addColumn("Einkaufspreis");
 		
 		for (Product product : logic.getList()) {
-			model.addRow(new Object[]{product.getId(), product.getName(), product.getResale(), product.getPrice()});
+			model.addRow(new Object[]{Integer.toString(product.getId()), product.getName(), Double.toString(product.getResale()), Double.toString(product.getPrice())});
 		}
 		
 		productView = createJPanel(new GridLayout(1, 3, 20, 20));
 		this.add(productView, BorderLayout.SOUTH);
-		this.add(tblProductList, BorderLayout.CENTER);
+		this.add(new JScrollPane(tblProductList), BorderLayout.CENTER);
 		
 		btnRemoveProduct = createButton(productView, new ImageIcon("images/Buttons/Trash.png"));
 		btnSave = createButton(productView, new ImageIcon("images/Buttons/checkmark.png"));
@@ -79,39 +80,36 @@ public class ManageProductPanel extends JFrame implements ActionListener{
 				for (Product product : logic.getList()) {
 					logic.deleteProduct(product.getId());
 				}
-				Vector data = ((OrderPosManualTableModel)this,model()).getDataVector();
+				Vector data = this.model.getDataVector();
 				for(int i = 0; i < data.size(); i++) {
-				    Vector row = (Vector)data.get(i);
+				    Vector<String> row = (Vector)data.get(i);
 				    if(row != null) {
 					Product product = new ProductImpl();
-					int id = (Integer)row.get(0);
-					product.setId((Integer)row.get(0));
-					product.setName((String)row.get(1));
-					product.setPrice((Double)row.get(2));
-					product.setResale((Double)row.get(3));
-
+					product.setId(Integer.parseInt(row.get(0)));
+					product.setName(row.get(1));
+					product.setPrice(Double.parseDouble(row.get(2)));
+					product.setResale(Double.parseDouble(row.get(3)));
+					logic.addProduct(product);
 				    }
 				}
-
-				this.dispose();
 			}
+			this.dispose();
 		}
 		
 		if (e.getSource() == btnRemoveProduct) {
-			tblProductList.remove(tblProductList.getSelectedRow());
-			tblProductList.repaint();
+			if (model.getRowCount() != 0){
+				model.removeRow(tblProductList.getSelectedRow());
+				tblProductList.repaint();
+			}
+			
 		}
 		if (e.getSource() == btnBack) {
 			this.dispose();
 		}
 		if (e.getSource() == btnAdd){
-			model.addRow(new Object[]{"ID", "Name", "Verkaufspreis", "Einkaufspreis"});
+			model.addRow(new Object[]{Integer.toString(model.getRowCount() + 1), "Name", "0.00", "0.00"});
 			tblProductList.repaint();
 		}
-	}
-	
-	private void saveList(){
-		
 	}
 }
 

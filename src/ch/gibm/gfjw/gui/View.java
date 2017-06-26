@@ -68,6 +68,7 @@ public class View extends JFrame implements ActionListener{
 		tblProductView = new JTable();
 		tblProductView.setModel(modelProductList);
 		tblProductView.setFont(FONT);
+		tblProductView.setBackground(WHITE);
 		tblProductView.setSize(400, 700);
 		tblProductView.setRowHeight(30);
 
@@ -126,7 +127,7 @@ public class View extends JFrame implements ActionListener{
 	    }
 	    
 	    else if (e.getSource() == this.btnDelete){
-	    	if (modelProductList.getRowCount() != 0){
+	    	if (modelProductList.getRowCount() > 2){
 		    	if(productButtonView.isVisible() == true){
 		    		shoppingCar.deleteProduct(tblProductView.getSelectedRow());
 		    	}else if(backMoney.isVisible() == true){

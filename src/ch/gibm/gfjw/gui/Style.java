@@ -19,15 +19,15 @@ public class Style {
 
 	public static final Font FONT= new Font("Verdana", 0, 16);
 	public static final Font FONTBOLD= new Font("Verdana", Font.BOLD, 20);
-    public final static Border BORDER = new RoundedBorder(50);
-    public final static Color BLUE = new Color(0,102,255);
+    public final static Border BORDER = new RoundedBorder(15);
+    public final static Color BLUE = new Color(92,172,238);
     public final static Color GREEN = new Color(0,153,0);
     public final static Color RED = new Color(204,0,51);
 
 	public final static JButton createButton(String name){
 		JButton button = new JButton(name);
 		button.setPreferredSize(new Dimension(150,50));
-		button.setBackground(BLUE); 
+		button.setBackground(null); 
 		button.setBorder(BORDER);
 		button.setFont(FONT);
 		return button;	
