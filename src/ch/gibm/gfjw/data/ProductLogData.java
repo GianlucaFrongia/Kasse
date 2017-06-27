@@ -1,4 +1,5 @@
 package ch.gibm.gfjw.data;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -41,11 +42,19 @@ public class ProductLogData implements ProductLogDAO {
 	 * **/
 	@Override
 	public void logProducts(ArrayList<Product> shoppingCar) {
-		combined.addAll(shoppingCar);
-		combined.addAll(getList(dateFormat.format(date)));
-		// TODO Auto-generated method stub
-		try (Writer writer = new FileWriter("productLog-"+ dateFormat.format(date) +".json")) {
 		
+		File f = new File("productLog-"+ dateFormat.format(date) +".json");
+		if(!f.exists() && !f.isDirectory()) { 
+			try (Writer writer = new FileWriter("productLog-"+ dateFormat.format(date) +".json")) {
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		combined.addAll(shoppingCar);
+		if(getList(dateFormat.format(date)) != null){
+			combined.addAll(getList(dateFormat.format(date)));
+		}
+		try (Writer writer = new FileWriter("productLog-"+ dateFormat.format(date) +".json")) {
 			writer.write(gson.toJson(combined));
 		} catch (IOException e) {
 			e.printStackTrace();
