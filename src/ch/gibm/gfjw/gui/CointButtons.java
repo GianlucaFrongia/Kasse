@@ -32,7 +32,7 @@ public class CointButtons extends JButton{
 				if (mainView.getPurchaseTotal() >= mainView.getMoneyList().getTotal()){
 					ausgabeText = "Es fehlen: " + DoubletoCHF(mainView.getPurchaseTotal() - mainView.getMoneyList().getTotal());
 				} else {
-					ausgabeText = "Rückgeld: " + DoubletoCHF(mainView.getMoneyList().getTotal() - mainView.getPurchaseTotal());
+					ausgabeText = "RÃ¼ckgeld: " + DoubletoCHF(mainView.getMoneyList().getTotal() - mainView.getPurchaseTotal());
 				}
 				getMainView().getLblDisplay().setText(ausgabeText);
 				mainView.reloadList();
