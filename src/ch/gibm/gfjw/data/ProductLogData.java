@@ -1,5 +1,4 @@
 package ch.gibm.gfjw.data;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.apache.commons.lang3.ArrayUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,6 +33,7 @@ public class ProductLogData implements ProductLogDAO {
 	private ArrayList<Product> productLog = new ArrayList<Product>();
 	private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	private DateFormat dateFormat = new SimpleDateFormat("MM.dd");
+	private ArrayList<Product> combined = new ArrayList<Product>();
 
 	/**Schreibt den Inhalt vom shoppingCar in die JSON-Logdatei
 	 * @param ArrayList<Product> shoppingCar
@@ -39,10 +41,12 @@ public class ProductLogData implements ProductLogDAO {
 	 * **/
 	@Override
 	public void logProducts(ArrayList<Product> shoppingCar) {
-		
+		combined.addAll(shoppingCar);
+		combined.addAll(getList(dateFormat.format(date)));
 		// TODO Auto-generated method stub
 		try (Writer writer = new FileWriter("productLog-"+ dateFormat.format(date) +".json")) {
-			writer.write(gson.toJson(shoppingCar));
+		
+			writer.write(gson.toJson(combined));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -59,9 +63,11 @@ public class ProductLogData implements ProductLogDAO {
 			}.getType();			
 			productLog = new Gson().fromJson(reader, type);
 			return productLog;
+
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return productLog;
 	}	
 }
