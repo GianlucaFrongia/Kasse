@@ -30,6 +30,9 @@ import ch.gibm.gfjw.dto.ProductImpl;
  */
 public class ProductLogData implements ProductLogDAO {
 	
+	/**
+	 * Das heutige Datum
+	 */
 	private Date date = new Date();
 	private ArrayList<Product> productLog = new ArrayList<Product>();
 	private Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -66,7 +69,6 @@ public class ProductLogData implements ProductLogDAO {
 	 */
 	@Override
 	public ArrayList<Product> getList(String date) {
-		// TODO Auto-generated method stub
 		try (Reader reader = new FileReader("productLog-"+ date +".json")) {
 			Type type = new TypeToken<List<ProductImpl>>() {
 			}.getType();			

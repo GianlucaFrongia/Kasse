@@ -100,6 +100,9 @@ public class View extends JFrame implements ActionListener{
 		backMoney.setVisible(false);
 	}
 	
+	/**
+	 * verwaltet die aktionen der Buttons
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e){
 		if (e.getSource() == this.btnEnter){

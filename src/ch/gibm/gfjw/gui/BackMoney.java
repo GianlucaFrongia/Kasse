@@ -1,3 +1,6 @@
+/**
+ * erstellt einen Button für jedes Geld schein.
+ */
 package ch.gibm.gfjw.gui;
 import static java.awt.Color.WHITE;
 

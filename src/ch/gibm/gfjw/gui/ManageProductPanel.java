@@ -1,3 +1,6 @@
+/**
+ * Windows um die Produkte zu verwalten.
+ */
 package ch.gibm.gfjw.gui;
  
 import static ch.gibm.gfjw.gui.Style.createButton;

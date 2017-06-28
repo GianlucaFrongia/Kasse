@@ -1,6 +1,5 @@
-/*
- * Copyright 2016 Coop, Informatik / Internet Entwicklung.
- * Use is subject to license terms.
+/**
+ * Zeichenet den rand für einen Button.
  */
 
 package ch.gibm.gfjw.gui;

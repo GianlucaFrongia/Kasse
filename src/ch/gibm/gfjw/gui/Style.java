@@ -1,3 +1,6 @@
+/**
+ * enthäölt methoden zum erstellen der einenlen Componenten.
+ */
 package ch.gibm.gfjw.gui;
 
 import static java.awt.Color.WHITE;
@@ -22,7 +25,7 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 
 public class Style {
-
+	
 	public static final Font FONT= new Font("Verdana", 0, 16);
 	public static final Font FONTBOLD= new Font("Verdana", Font.BOLD, 20);
     public final static Border BORDER = new RoundedBorder(15);

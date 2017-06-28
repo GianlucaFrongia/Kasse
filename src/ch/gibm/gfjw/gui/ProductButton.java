@@ -1,3 +1,6 @@
+/**
+ * Button für jedes Produkt.
+ */
 package ch.gibm.gfjw.gui;
 
 import static ch.gibm.gfjw.gui.Style.BORDER;
