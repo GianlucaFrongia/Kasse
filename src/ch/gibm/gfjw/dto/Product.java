@@ -1,3 +1,9 @@
+/**
+ * Interface für ein Productobejekt.
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
+ */
 package ch.gibm.gfjw.dto;
 
 public interface Product {

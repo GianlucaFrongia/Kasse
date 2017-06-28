@@ -98,11 +98,11 @@ public class Style {
 	}
 	
 	/**
-	 * 
-	 * @param width
-	 * @param height
-	 * @param name
-	 * @return
+	 * Generiert ein Standartlabel.
+	 * @param width breite des Labels
+	 * @param height Höhe des Labels
+	 * @param name Text im Label
+	 * @return Standartlabel
 	 */
 	public final static JLabel createLabel(int width, int height, String name){
 		JLabel label = new JLabel(name);
@@ -116,7 +116,7 @@ public class Style {
 	}
 	
 	/**
-	 * Generiert einen Label.
+	 * Generiert einen Label ohne text.
 	 * @param int widht.
 	 * @param int height
 	 * @return Einen label.

@@ -6,27 +6,27 @@
     "price": 1.5
   },
   {
-    "name": "Cola",
-    "id": 5,
-    "resale": 2.0,
-    "price": 1.5
-  },
-  {
     "name": "Fanta",
     "id": 6,
     "resale": 4.0,
     "price": 1.0
   },
   {
-    "name": "Cola",
-    "id": 7,
-    "resale": 2.0,
-    "price": 1.5
+    "name": "Sprite",
+    "id": 1,
+    "resale": 2.5,
+    "price": 40.0
   },
   {
-    "name": "Fanta",
-    "id": 8,
+    "name": "Bier",
+    "id": 4,
     "resale": 4.0,
-    "price": 1.0
+    "price": 0.0
+  },
+  {
+    "name": "Proseco",
+    "id": 6,
+    "resale": 15.0,
+    "price": 10.0
   }
 ]

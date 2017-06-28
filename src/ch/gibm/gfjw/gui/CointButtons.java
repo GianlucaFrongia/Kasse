@@ -1,5 +1,8 @@
 /**
  * Button für jedes Geld schein.
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
  */
 package ch.gibm.gfjw.gui;
 

@@ -1,5 +1,8 @@
 /**
  * Zeichenet den rand für einen Button.
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
  */
 
 package ch.gibm.gfjw.gui;

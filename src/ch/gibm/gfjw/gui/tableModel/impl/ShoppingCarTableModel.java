@@ -1,3 +1,10 @@
+/**
+ * Tablemodel für den Shoppingcar in der Mainview.
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
+ */
+
 package ch.gibm.gfjw.gui.tableModel.impl;
 
 import static ch.gibm.gfjw.gui.Style.DoubletoCHF;

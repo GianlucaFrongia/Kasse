@@ -1,6 +1,3 @@
-/**
- * Schnittstelle zur Data Schicht.
- */
 package ch.gibm.gfjw.business;
 
 import java.util.List;
@@ -8,6 +5,13 @@ import java.util.List;
 import ch.gibm.gfjw.data.ProductDao;
 import ch.gibm.gfjw.data.ProductFactory;
 import ch.gibm.gfjw.dto.Product;
+
+/**
+ * Schnittstelle zur Data Schicht bereitet die daten der Dataschicht auf.
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
+ */
 
 public class ProductLogic {
 	

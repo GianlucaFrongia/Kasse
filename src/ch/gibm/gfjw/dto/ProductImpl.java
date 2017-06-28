@@ -1,5 +1,12 @@
 package ch.gibm.gfjw.dto;
 
+/**
+ * Standart Product Objekt.
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
+ */
+
 public class ProductImpl implements Product{
 
 	private String name;

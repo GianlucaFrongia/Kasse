@@ -1,3 +1,10 @@
+/**
+ * Main Fenster das beim Starten aufgerufen wird.
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
+ */
+
 package ch.gibm.gfjw.gui;
 import static java.awt.Color.WHITE;
 import static ch.gibm.gfjw.gui.Style.createButton;

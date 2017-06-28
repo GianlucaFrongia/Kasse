@@ -1,10 +1,3 @@
-/**
- * ShoppingCar Klasse
- * 
- * 
- * @author Gianluca Frongia und Joel Weissenberger
- * @version 1.0
- */
 package ch.gibm.gfjw.business;
 
 import java.awt.List;
@@ -15,6 +8,14 @@ import ch.gibm.gfjw.data.ProductFactory;
 import ch.gibm.gfjw.data.ProductLogDAO;
 import ch.gibm.gfjw.dto.Product;
 import ch.gibm.gfjw.dto.ProductImpl;
+
+/**
+ * Speichert die Produkte in einem Array und verwaltet diesen.
+ * 
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
+ */
 
 public class ShoppingCar {
 	

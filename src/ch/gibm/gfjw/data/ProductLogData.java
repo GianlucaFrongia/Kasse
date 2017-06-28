@@ -31,7 +31,7 @@ import ch.gibm.gfjw.dto.ProductImpl;
 public class ProductLogData implements ProductLogDAO {
 	
 	/**
-	 * Das heutige Datum
+	 * Das heutige Datum.
 	 */
 	private Date date = new Date();
 	private ArrayList<Product> productLog = new ArrayList<Product>();

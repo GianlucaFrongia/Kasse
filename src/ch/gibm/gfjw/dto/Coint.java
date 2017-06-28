@@ -2,6 +2,12 @@ package ch.gibm.gfjw.dto;
 
 import javax.swing.ImageIcon;
 
+/**
+ * Coint Objekt.
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
+ */
+
 public class Coint {
 
 	private ImageIcon image;

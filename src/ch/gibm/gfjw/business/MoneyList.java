@@ -1,15 +1,16 @@
-/**
- * MoneyList Klasse
- * 
- * 
- * @author Gianluca Frongia und Joel Weissenberger
- * @version 1.0
- */
 package ch.gibm.gfjw.business;
 
 import java.util.ArrayList;
 
 import ch.gibm.gfjw.dto.Coint;
+
+/**
+ * Speichert alle Geldstücke in einem Array und verwaltet diesen.
+ * 
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
+ */
 
 public class MoneyList{
 	

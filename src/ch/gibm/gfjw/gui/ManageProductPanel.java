@@ -1,5 +1,8 @@
 /**
  * Windows um die Produkte zu verwalten.
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
  */
 package ch.gibm.gfjw.gui;
  
