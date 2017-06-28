@@ -1,5 +1,8 @@
 /**
  * enthäölt methoden zum erstellen der einenlen Componenten.
+ * 
+ * @author Gianluca Frongia und Joel Weissenberger
+ * @version 1.0
  */
 package ch.gibm.gfjw.gui;
 
