@@ -52,7 +52,7 @@ public class Style {
 	 * @param addToPanel Panel in welchem der Button hinzugefügt werden soll.
 	 * @param constraints Die Konditionen für das Panel.
 	 * @param image Bild für den Button
-	 * @return Einen Button mit Bild
+	 * @return Einen Button mit Bild.
 	 */
 	public final static JButton createButton(JPanel addToPanel, Object constraints, ImageIcon image){
 		JButton button = createButton(addToPanel, constraints, "");
@@ -78,6 +78,13 @@ public class Style {
 		return button;	
 	}
 	
+	/**
+	 * 
+	 * @param width
+	 * @param height
+	 * @param name
+	 * @return
+	 */
 	public final static JLabel createLabel(int width, int height, String name){
 		JLabel label = new JLabel(name);
 		label.setPreferredSize(new Dimension(width, height));
