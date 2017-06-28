@@ -1,8 +1,8 @@
 package ch.gibm.gfjw.data;
 /**
  * ProductFactory Klasse
- * 
- * 
+ * Ist ein Singleton
+ * Erstell Objekte von ProductData und ProductLogData
  * @author Gianluca Frongia und Joel Weissenberger
  * @version 1.0
  */
