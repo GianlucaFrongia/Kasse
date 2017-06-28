@@ -60,18 +60,37 @@ public class Style {
 		return button;	
 	}
 	
+	
+	/**
+	 * Generiert einen Button mit einem Bild.
+	 * @param addToPanel Panel in welchem der Button hinzugefügt werden soll.
+	 * @param image Bild für den Button
+	 * @return Einen Button mit Bild.
+	 */
 	public final static JButton createButton(JPanel addToPanel, ImageIcon image){
 		JButton button = createButton(addToPanel, "");
 		button.setIcon(image);
 		return button;	
 	}
-	
+	/**
+	 * Generiert einen Button mit text Bild.
+	 * @param addToPanel Panel in welchem der Button hinzugefügt werden soll.
+	 * @param constraints Die Konditionen für das Panel.
+	 * @param String text
+	 * @return Einen Button.
+	 */
 	public final static JButton createButton(JPanel addToPanel, Object constraints, String text){
 		JButton button = createButton(text);
 		addToPanel.add(button, constraints);
 		return button;	
 	}
 	
+	/**
+	 * Generiert einen Button mit text Bild.
+	 * @param addToPanel Panel in welchem der Button hinzugefügt werden soll.
+	 * @param String Text
+	 * @return Einen Button.
+	 */
 	public final static JButton createButton(JPanel addToPanel, String text){
 		JButton button = createButton(text);
 		addToPanel.add(button);
@@ -96,35 +115,64 @@ public class Style {
 		return label;
 	}
 	
+	/**
+	 * Generiert einen Label.
+	 * @param int widht.
+	 * @param int height
+	 * @return Einen label.
+	 */
 	public final static JLabel createLabel(int width, int height){
 		JLabel label = createLabel(width, height, ""); 
 		return label;
 	}
 	
+	/**
+	 * Generiert einen Panel im BorderLayout.
+	 * @param BorderLayout layout.
+	 * @return Einen panel.
+	 */
 	public final static JPanel createJPanel(BorderLayout layout){
 		JPanel panel = createJPanel();
 		panel.setLayout(layout);
 		return panel;
 	}
 	
+	/**
+	 * Generiert einen Panel im GridLayout.
+	 * @param Gridlayout.
+	 * @return Einen panel.
+	 */
 	public final static JPanel createJPanel(GridLayout layout){
 		JPanel panel = createJPanel();
 		panel.setLayout(layout);
 		return panel;
 	}
 	
+	/**
+	 * Generiert einen Panel im CardLayout.
+	 * @param CartdLayout layout.
+	 * @return Einen panel.
+	 */
 	public final static JPanel createJPanel(CardLayout layout){
 		JPanel panel = createJPanel();
 		panel.setLayout(layout);
 		return panel;
 	}
 
+	/**
+	 * Generiert einen Panel.
+	 * @return Einen panel.
+	 */
 	private final static JPanel createJPanel() {
 		JPanel panel = new JPanel();	
 		panel.setBackground(WHITE);
 		return panel;
 	}
-	
+	/**
+	 * Generiert einen SchrollPanel im BorderLayout.
+	 * @param Component component.
+	 * @return Einen scroll.
+	 */
 	public final static JScrollPane createScrollPane(Component component){
 		JScrollPane scroll = new JScrollPane(component);
 		scroll.getViewport().setBackground(WHITE);
@@ -132,6 +180,11 @@ public class Style {
 		return scroll;
 	}
 	
+	/**
+	 * Generiert einen table.
+	 * @param TableModel model.
+	 * @return Einen table.
+	 */
 	public final static JTable createTable(TableModel model){
 		JTable table = new JTable(model);
 		JTableHeader header = table.getTableHeader();
@@ -145,6 +198,11 @@ public class Style {
 		return table;
 	}
 	
+	/**
+	 * Double to CHF .
+	 * @param Double value.
+	 * @return Franken.
+	 */
 	public final static String DoubletoCHF(Double value){
 		return String.format("%.2f", value) + " CHF";
 	}
