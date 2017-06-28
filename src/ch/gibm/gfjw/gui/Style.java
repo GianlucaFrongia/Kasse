@@ -32,7 +32,12 @@ public class Style {
     public final static Color BLUE = new Color(92,172,238);
     public final static Color GREEN = new Color(0,153,0);
     public final static Color RED = new Color(204,0,51);
-
+    
+    /**
+     * Generiert einen Button.
+     * @param name Anzeigetext des Buttons
+     * @return default Button
+     */
 	public final static JButton createButton(String name){
 		JButton button = new JButton(name);
 		button.setPreferredSize(new Dimension(150,50));
@@ -42,6 +47,13 @@ public class Style {
 		return button;	
 	}
 	
+	/**
+	 * Generiert einen Button mit einem Bild.
+	 * @param addToPanel Panel in welchem der Button hinzugefügt werden soll.
+	 * @param constraints Die Konditionen für das Panel.
+	 * @param image Bild für den Button
+	 * @return Einen Button mit Bild
+	 */
 	public final static JButton createButton(JPanel addToPanel, Object constraints, ImageIcon image){
 		JButton button = createButton(addToPanel, constraints, "");
 		button.setIcon(image);
